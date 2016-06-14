@@ -29,6 +29,16 @@ namespace ALP_Desktop_2
 
         private void btnGenerateQRCode_Click(object sender, EventArgs e)
         {
+            new Thread(new ThreadStart(setupAssetLabelImg)).Start();
+        }
+
+        private void btnPrintQRCode_Click(object sender, EventArgs e)
+        {
+            PrinterProvider.PrintAsset(inventory.AssetLabel);
+        }
+        
+        public void setupAssetLabelImg()
+        {
             // get value from window form -------------------------------------
             String serviceProvider = txtServiceProvider.Text;
             String projectCode = txtProjectCode.Text;
@@ -42,17 +52,11 @@ namespace ALP_Desktop_2
             inventory.SerialNo = Provider.InventoryProvider.getSerialNoByHttp();
             inventory.LuhnCheck = Provider.InventoryProvider.getCheckDigit(inventory.SerialNo);
             inventory.InventorySerialNo = inventory.ProjectCode + inventory.SerialNo + inventory.LuhnCheck;
+            inventory.QRCode = QRCodeProvider.getQREncodeBitmap(inventory.InventorySerialNo, 0, (AssetLabel.QR_WIDTH * 2), (AssetLabel.QR_HEIGHT * 2));
+            inventory.AssetLabel = QRCodeProvider.getAssetLabel(inventory.QRCode, serviceProvider, serviceProviderContact, inventory.InventorySerialNo);
             // ----------------------------------------------------------------
 
-            Console.WriteLine("Inventory serial no: " + inventory.InventorySerialNo);
-
-            Bitmap qrBitmap = QRCodeProvider.getQREncodeBitmap(inventory.InventorySerialNo, 0, (AssetLabel.QR_WIDTH * 2), (AssetLabel.QR_HEIGHT * 2));
-            imgQRImage.Image = QRCodeProvider.getAssetLabel(qrBitmap, serviceProvider, serviceProviderContact, inventory.InventorySerialNo);
-        }
-
-        private void btnPrintQRCode_Click(object sender, EventArgs e)
-        {
-
+            imgQRImage.Image = inventory.AssetLabel;
         }
     }
 }
