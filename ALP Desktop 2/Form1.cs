@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using ALP_Desktop_2.Provider;
-using ZXing.QrCode.Internal;
 using ALP_Desktop_2.DTO;
 
 namespace ALP_Desktop_2
@@ -23,21 +15,22 @@ namespace ALP_Desktop_2
             InitializeComponent();
 
             // main process ---------------------------------------------------
-            inventory = new Inventory();
+            inventory = new Inventory(); // initialize inventory variable, used to store temporary inventory data
             // ----------------------------------------------------------------
         }
 
         private void btnGenerateQRCode_Click(object sender, EventArgs e)
         {
-            new Thread(new ThreadStart(setupAssetLabelImg)).Start();
+            new Thread(new ThreadStart(generateAssetLabel)).Start(); // setup asset label image in saperate thread
         }
 
         private void btnPrintQRCode_Click(object sender, EventArgs e)
         {
-            PrinterProvider.PrintAsset(inventory.AssetLabel);
+            PrinterProvider.assetLabel = inventory.AssetLabel; // set the image that user want to print
+            PrinterProvider.PrintAsset(); // print the image
         }
         
-        public void setupAssetLabelImg()
+        public void generateAssetLabel()
         {
             // get value from window form -------------------------------------
             String serviceProvider = txtServiceProvider.Text;
@@ -45,7 +38,7 @@ namespace ALP_Desktop_2
             String serviceProviderContact = txtServiceProviderContact.Text;
             // ----------------------------------------------------------------
 
-            // setup inventory ------------------------------------------------
+            // setup inventory DTO ------------------------------------------------
             inventory.ServiceProvider = serviceProvider;
             inventory.ProjectCode = projectCode;
             inventory.ServiceProviderContact = serviceProviderContact;
@@ -56,7 +49,7 @@ namespace ALP_Desktop_2
             inventory.AssetLabel = QRCodeProvider.getAssetLabel(inventory.QRCode, serviceProvider, serviceProviderContact, inventory.InventorySerialNo);
             // ----------------------------------------------------------------
 
-            imgQRImage.Image = inventory.AssetLabel;
+            imgQRImage.Image = inventory.AssetLabel; // present the asset label in Window Form
         }
     }
 }

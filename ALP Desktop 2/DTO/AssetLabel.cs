@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ALP_Desktop_2.DTO
+﻿namespace ALP_Desktop_2.DTO
 {
     class AssetLabel
     {

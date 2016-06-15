@@ -12,15 +12,13 @@ namespace ALP_Desktop_2.Provider
 {
     class PrinterProvider
     {
-        private static Bitmap asset;
+        public static Bitmap assetLabel;
 
-        public static void PrintAsset(Bitmap assetLabel)
+        public static void PrintAsset()
         {
             PrintDialog printDialog;
             PrintDocument printDoc;
             DialogResult dialogResult;
-
-            asset = assetLabel;
 
             printDialog = new PrintDialog();
             printDoc = new PrintDocument();
@@ -37,13 +35,10 @@ namespace ALP_Desktop_2.Provider
 
         private static void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font font;
             Graphics graphics;
 
             graphics = e.Graphics;
-            font = new Font("Courier New", 12);
-
-            graphics.DrawImage(asset, 0, 0, AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
+            graphics.DrawImage(assetLabel, 0, 0, AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
         }
     }
 }

@@ -1,29 +1,23 @@
 ﻿using ALP_Desktop_2.DTO;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZXing;
-using ZXing.Common;
 using ZXing.QrCode;
-using ZXing.QrCode.Internal;
 
 namespace ALP_Desktop_2.Provider
 {
     class QRCodeProvider
     {
-        public static Bitmap getQREncodeBitmap(String code, int margin, int width, int height)
+        public static Bitmap getQREncodeBitmap(string code, int margin, int width, int height) // encode invecntorySerialNo -> QR Code -> bitmap image
         {
-            BarcodeWriter qrWriter;
-            QrCodeEncodingOptions options;
-            Bitmap qrBitmap = null;
+            BarcodeWriter qrWriter; // used to write(encode) string to qr code
+            QrCodeEncodingOptions options; // used to setup encoding options(height, width, margin, color, etc...)
+            Bitmap qrBitmap = null; // used to present the Qr Code 
 
             try
             {
+                // initialize encoding options
                 options = new QrCodeEncodingOptions
                 {
                     DisableECI = true,
@@ -32,42 +26,40 @@ namespace ALP_Desktop_2.Provider
                     Width = width,
                     Height = height
                 };
-                qrWriter = new BarcodeWriter();
-                qrWriter.Format = BarcodeFormat.QR_CODE;
-                qrWriter.Options = options;
+                qrWriter = new BarcodeWriter(); // declare BarcodeWriter
+                qrWriter.Format = BarcodeFormat.QR_CODE; // set barcode format as QR Code
+                qrWriter.Options = options; // install encoding option to barcodewriter
 
-                qrBitmap = new Bitmap(qrWriter.Write(code));
+                qrBitmap = new Bitmap(qrWriter.Write(code)); // present encoded QR Code as bitmap
             } catch(Exception e) { Console.WriteLine(e.Message); }
 
-            return qrBitmap;
+            return qrBitmap; // return encoded QR Code in bitmap
         }
 
-        public static Bitmap getAssetLabel(Bitmap qrBitmap, String serviceProvider, String serviceProviderContact, String inventorySerialNo)
+        public static Bitmap getAssetLabel(Bitmap qrBitmap, string serviceProvider, string serviceProviderContact, string inventorySerialNo) // arrange QR with full asset labe and combine into 1 bitmap
         {
-            Font textFont;
-            SolidBrush textBrush;
-            Graphics assetLabelGraphics = null;
-            Bitmap assetLabel = null;
-
-            String fileName = "qr_sheet.png";
-            String imgPath = Path.Combine(Environment.CurrentDirectory, @"Resources\Images\", fileName);
+            Font textFont; // used to setup the font of asset label
+            SolidBrush textBrush; // used to setup brush to write for asset label
+            Graphics assetLabelGraphics = null; // used to organize elements in bitmap
+            Bitmap assetLabel = null; // represent full asset label image
 
             try
             {
-                textBrush = new SolidBrush(Color.Black);
-                textFont = new Font("Arial", 20);
-                assetLabel = new Bitmap((AssetLabel.LABEL_WIDTH * 2), (AssetLabel.LABEL_HEIGHT * 2));
-                assetLabelGraphics = Graphics.FromImage(assetLabel);
+                // initialize graphics related editing tools
+                textBrush = new SolidBrush(Color.Black); // initialize brush
+                textFont = new Font("Arial", 16, FontStyle.Bold); // initialize font
+                assetLabel = new Bitmap((AssetLabel.LABEL_WIDTH * 2), (AssetLabel.LABEL_HEIGHT * 2)); // initialize asset label image
+                assetLabelGraphics = Graphics.FromImage(assetLabel); // initialize graphic editor, to be able to edit the assetLabel image
 
-                // draw asset label
+                // draw QR Code & asset label on 1 bitmap
                 assetLabelGraphics.Clear(Color.White);
-                assetLabelGraphics.DrawImage(qrBitmap, (assetLabel.Width / 20), (assetLabel.Height / 10));
-                assetLabelGraphics.DrawString(serviceProvider, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 3));
-                assetLabelGraphics.DrawString(("Tel: " + serviceProviderContact), textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2));
-                assetLabelGraphics.DrawString(inventorySerialNo, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 1.5f));
+                assetLabelGraphics.DrawImage(qrBitmap, (assetLabel.Width / 20), (assetLabel.Height / 10)); // draw QR Code
+                assetLabelGraphics.DrawString(serviceProvider, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 3.5f)); // draw label for service provider name
+                assetLabelGraphics.DrawString(("Tel: " + serviceProviderContact), textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2.5f)); // draw label for service provider contact no
+                assetLabelGraphics.DrawString(inventorySerialNo, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2)); // draw label for inventory serial no
             } catch(Exception e) { Console.WriteLine(e.Message); }
 
-            return assetLabel;
+            return assetLabel; // return complete asset label with qr code in bitmap image
         }
     }
 }

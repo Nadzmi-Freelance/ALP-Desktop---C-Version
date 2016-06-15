@@ -140,8 +140,6 @@
     <Content Include="libs\Gma.QrCodeNet.Encoding.Net45.dll" />
     <Content Include="libs\Newtonsoft.Json.dll" />
     <Content Include="libs\zxing.dll" />
-    <Content Include="Resources\Images\qr_sheet.png" />
-    <Content Include="Resources\Images\qr_template.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

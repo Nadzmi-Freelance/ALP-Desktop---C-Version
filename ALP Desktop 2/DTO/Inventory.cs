@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ALP_Desktop_2.Provider;
 using System.Drawing;
 
 namespace ALP_Desktop_2

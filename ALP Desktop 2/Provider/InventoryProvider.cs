@@ -1,27 +1,22 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ALP_Desktop_2.Provider
 {
     class InventoryProvider
     {
-        private static String url = "http://seladanghijau.pe.hu/GetNextSerialNo.php";
+        private static string url = "http://seladanghijau.pe.hu/GetNextSerialNo.php";
 
-        public static String getSerialNoByHttp()
+        public static string getSerialNoByHttp()
         {
             HttpWebRequest httpRequest;
             HttpWebResponse httpResponse;
             StreamReader reader = null;
 
             JObject jsonObject;
-            String jsonResponse;
+            string jsonResponse;
             int serialNo = -1;
 
             try
@@ -44,12 +39,12 @@ namespace ALP_Desktop_2.Provider
             return serialNoFormat(serialNo);
         }
 
-        public static String serialNoFormat(int serialNo)
+        public static string serialNoFormat(int serialNo)
         {
-            return String.Format("{0:000000000}", serialNo);
+            return string.Format("{0:000000000}", serialNo);
         }
 
-        public static String getCheckDigit(String number)
+        public static string getCheckDigit(string number)
         {
             int sum = 0;
             int checkDigit = 0;
