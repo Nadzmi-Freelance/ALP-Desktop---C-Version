@@ -7,8 +7,8 @@
     <ProjectGuid>{B6CE5681-2766-4EB4-ADA5-A32794F37807}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ALP_Desktop_2</RootNamespace>
-    <AssemblyName>ALP Desktop 2</AssemblyName>
+    <RootNamespace>ALP_Desktop</RootNamespace>
+    <AssemblyName>ALP Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -60,6 +60,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons8-Windows-8-Ecommerce-Qr-Code.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Gma.QrCodeNet.Encoding.Net45, Version=0.4.0.0, Culture=neutral, PublicKeyToken=e8a75d24b142be49, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -109,6 +112,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ALP Desktop 2_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -137,9 +141,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons8-Windows-8-Ecommerce-Qr-Code.ico" />
     <Content Include="libs\Gma.QrCodeNet.Encoding.Net45.dll" />
     <Content Include="libs\Newtonsoft.Json.dll" />
     <Content Include="libs\zxing.dll" />
+    <Content Include="Resources\ico\Icons8-Windows-8-Ecommerce-Qr-Code.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

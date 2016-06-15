@@ -183,6 +183,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 341);
             this.Controls.Add(this.pnlMainLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "ALP Desktop";
             this.pnlMainLayout.ResumeLayout(false);
