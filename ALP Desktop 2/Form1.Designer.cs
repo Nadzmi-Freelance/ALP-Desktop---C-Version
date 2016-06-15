@@ -40,9 +40,12 @@
             this.lblServiceProvider = new System.Windows.Forms.Label();
             this.txtServiceProvider = new System.Windows.Forms.TextBox();
             this.btnGenerateQRCode = new System.Windows.Forms.Button();
+            this.lblPrintNo = new System.Windows.Forms.Label();
+            this.numPrintNo = new System.Windows.Forms.NumericUpDown();
             this.pnlMainLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQRImage)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrintNo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMainLayout
@@ -93,26 +96,29 @@
             this.pnlMainLayout.SetColumnSpan(this.tableLayoutPanel1, 2);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.72727F));
+            this.tableLayoutPanel1.Controls.Add(this.lblPrintNo, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtServiceProviderContact, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtProjectCode, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblServiceProviderContact, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblProjectCode, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblServiceProvider, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtServiceProvider, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numPrintNo, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 207);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 96);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // txtServiceProviderContact
             // 
             this.txtServiceProviderContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtServiceProviderContact.Location = new System.Drawing.Point(176, 67);
+            this.txtServiceProviderContact.Location = new System.Drawing.Point(176, 51);
             this.txtServiceProviderContact.Name = "txtServiceProviderContact";
             this.txtServiceProviderContact.Size = new System.Drawing.Size(456, 20);
             this.txtServiceProviderContact.TabIndex = 5;
@@ -120,7 +126,7 @@
             // txtProjectCode
             // 
             this.txtProjectCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProjectCode.Location = new System.Drawing.Point(176, 35);
+            this.txtProjectCode.Location = new System.Drawing.Point(176, 27);
             this.txtProjectCode.Name = "txtProjectCode";
             this.txtProjectCode.Size = new System.Drawing.Size(456, 20);
             this.txtProjectCode.TabIndex = 4;
@@ -129,9 +135,9 @@
             // 
             this.lblServiceProviderContact.AutoSize = true;
             this.lblServiceProviderContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblServiceProviderContact.Location = new System.Drawing.Point(3, 64);
+            this.lblServiceProviderContact.Location = new System.Drawing.Point(3, 48);
             this.lblServiceProviderContact.Name = "lblServiceProviderContact";
-            this.lblServiceProviderContact.Size = new System.Drawing.Size(167, 32);
+            this.lblServiceProviderContact.Size = new System.Drawing.Size(167, 24);
             this.lblServiceProviderContact.TabIndex = 2;
             this.lblServiceProviderContact.Text = "Service Provider Contact";
             this.lblServiceProviderContact.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,9 +146,9 @@
             // 
             this.lblProjectCode.AutoSize = true;
             this.lblProjectCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblProjectCode.Location = new System.Drawing.Point(3, 32);
+            this.lblProjectCode.Location = new System.Drawing.Point(3, 24);
             this.lblProjectCode.Name = "lblProjectCode";
-            this.lblProjectCode.Size = new System.Drawing.Size(167, 32);
+            this.lblProjectCode.Size = new System.Drawing.Size(167, 24);
             this.lblProjectCode.TabIndex = 1;
             this.lblProjectCode.Text = "Project Code";
             this.lblProjectCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,7 +159,7 @@
             this.lblServiceProvider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblServiceProvider.Location = new System.Drawing.Point(3, 0);
             this.lblServiceProvider.Name = "lblServiceProvider";
-            this.lblServiceProvider.Size = new System.Drawing.Size(167, 32);
+            this.lblServiceProvider.Size = new System.Drawing.Size(167, 24);
             this.lblServiceProvider.TabIndex = 0;
             this.lblServiceProvider.Text = "Service Provider Name";
             this.lblServiceProvider.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,6 +183,35 @@
             this.btnGenerateQRCode.UseVisualStyleBackColor = true;
             this.btnGenerateQRCode.Click += new System.EventHandler(this.btnGenerateQRCode_Click);
             // 
+            // lblPrintNo
+            // 
+            this.lblPrintNo.AutoSize = true;
+            this.lblPrintNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPrintNo.Location = new System.Drawing.Point(3, 72);
+            this.lblPrintNo.Name = "lblPrintNo";
+            this.lblPrintNo.Size = new System.Drawing.Size(167, 24);
+            this.lblPrintNo.TabIndex = 6;
+            this.lblPrintNo.Text = "Print Number";
+            this.lblPrintNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numPrintNo
+            // 
+            this.numPrintNo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.numPrintNo.Location = new System.Drawing.Point(176, 75);
+            this.numPrintNo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numPrintNo.Name = "numPrintNo";
+            this.numPrintNo.Size = new System.Drawing.Size(120, 20);
+            this.numPrintNo.TabIndex = 7;
+            this.numPrintNo.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgQRImage)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrintNo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,6 +243,8 @@
         private System.Windows.Forms.Label lblServiceProvider;
         private System.Windows.Forms.TextBox txtServiceProvider;
         private System.Windows.Forms.Button btnGenerateQRCode;
+        private System.Windows.Forms.Label lblPrintNo;
+        private System.Windows.Forms.NumericUpDown numPrintNo;
     }
 }
 
