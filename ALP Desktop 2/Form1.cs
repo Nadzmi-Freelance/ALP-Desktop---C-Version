@@ -27,7 +27,12 @@ namespace ALP_Desktop_2
 
         private void btnPrintQRCode_Click(object sender, EventArgs e)
         {
-            PrinterProvider.assetLabel = inventory.AssetLabel; // set the image that user want to print
+            // testing purpose
+            for(int x=0; x<inventoryList.Count; x++)
+            {
+                PrinterProvider.assetLabelList.Add(inventoryList[x].AssetLabel);
+            }
+
             PrinterProvider.PrintAsset(); // print the image
         }
         
@@ -55,10 +60,10 @@ namespace ALP_Desktop_2
                 inventory.QRCode = QRCodeProvider.getQREncodeBitmap(inventory.InventorySerialNo, 0, (AssetLabel.QR_WIDTH * 2), (AssetLabel.QR_HEIGHT * 2));
                 inventory.AssetLabel = QRCodeProvider.getAssetLabel(inventory.QRCode, serviceProvider, serviceProviderContact, inventory.InventorySerialNo);
 
-                inventoryList.Add(inventory);
+                inventoryList.Add(inventory); // add newly created inventory into inventoryList
             }
 
-            inventoryList.TrimExcess();
+            inventoryList.TrimExcess(); // trim the excess data space in inventoryList to reduce memory addressing
             // ----------------------------------------------------------------
 
             imgQRImage.Image = inventory.AssetLabel; // present the asset label in Window Form
