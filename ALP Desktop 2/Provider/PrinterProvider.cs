@@ -47,29 +47,28 @@ namespace ALP_Desktop_2.Provider
             printDialog.Document = printDoc; // set value of printDocument used to obtain printerSettings
             dialogResult = printDialog.ShowDialog(); // show print dialog
 
-            if(dialogResult == DialogResult.OK)
-                printDoc.Print();
+            if(dialogResult == DialogResult.OK) // if user click ok button
+                printDoc.Print(); // print the asset label
         }
 
         private static void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
         {
-            int z = 0;
+            int z = 0; // asset label number
             int column = 0;
-
             Graphics graphics;
 
-            graphics = e.Graphics;
+            graphics = e.Graphics; // get graphics
             for (int x=0; x<assetLabelList.Count; x++)
             {
-                if((x % 10 == 0) && (x != 0))
+                if((x % AssetLabel.COPY_PER_COLUMN_A4 == 0) && (x != 0))
                 {
                     z = 0;
                     column++;
                 }
 
+                // draw asset label to A4 paper
                 graphics.DrawImage(assetLabelList[x], (column * AssetLabel.LABEL_WIDTH), (z * AssetLabel.LABEL_HEIGHT), AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
-
-                z++;
+                z++; // increement the number of asset label
             }
 
             assetLabelList.Clear();
