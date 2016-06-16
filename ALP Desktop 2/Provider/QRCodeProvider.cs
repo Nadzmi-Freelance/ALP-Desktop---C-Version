@@ -54,9 +54,9 @@ namespace ALP_Desktop_2.Provider
                 // draw QR Code & asset label on 1 bitmap
                 assetLabelGraphics.Clear(Color.White);
                 assetLabelGraphics.DrawImage(qrBitmap, (assetLabel.Width / 20), (assetLabel.Height / 10)); // draw QR Code
-                assetLabelGraphics.DrawString(serviceProvider, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 3.5f)); // draw label for service provider name
-                assetLabelGraphics.DrawString(("Tel: " + serviceProviderContact), textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2.5f)); // draw label for service provider contact no
-                assetLabelGraphics.DrawString(inventorySerialNo, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2)); // draw label for inventory serial no
+                assetLabelGraphics.DrawString(serviceProvider, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 3.6f)); // draw label for service provider name
+                assetLabelGraphics.DrawString(("Tel: " + serviceProviderContact), textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 2.1f)); // draw label for service provider contact no
+                assetLabelGraphics.DrawString(inventorySerialNo, textFont, textBrush, (assetLabel.Width / 2.5f), (assetLabel.Height / 1.5f)); // draw label for inventory serial no
             } catch(Exception e) { Console.WriteLine(e.Message); }
 
             return assetLabel; // return complete asset label with qr code in bitmap image

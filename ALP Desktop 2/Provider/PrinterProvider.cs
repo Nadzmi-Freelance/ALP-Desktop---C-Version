@@ -71,6 +71,8 @@ namespace ALP_Desktop_2.Provider
 
                 z++;
             }
+
+            assetLabelList.Clear();
         }
     }
 }
