@@ -33,15 +33,15 @@
             this.btnPrintQRCode = new System.Windows.Forms.Button();
             this.imgQRImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPrintNo = new System.Windows.Forms.Label();
             this.txtServiceProviderContact = new System.Windows.Forms.TextBox();
             this.txtProjectCode = new System.Windows.Forms.TextBox();
             this.lblServiceProviderContact = new System.Windows.Forms.Label();
             this.lblProjectCode = new System.Windows.Forms.Label();
             this.lblServiceProvider = new System.Windows.Forms.Label();
             this.txtServiceProvider = new System.Windows.Forms.TextBox();
-            this.btnGenerateQRCode = new System.Windows.Forms.Button();
-            this.lblPrintNo = new System.Windows.Forms.Label();
             this.numPrintNo = new System.Windows.Forms.NumericUpDown();
+            this.btnGenerateQRCode = new System.Windows.Forms.Button();
             this.pnlMainLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgQRImage)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -65,15 +65,15 @@
             this.pnlMainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.pnlMainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.pnlMainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.pnlMainLayout.Size = new System.Drawing.Size(641, 341);
+            this.pnlMainLayout.Size = new System.Drawing.Size(494, 341);
             this.pnlMainLayout.TabIndex = 0;
             // 
             // btnPrintQRCode
             // 
             this.btnPrintQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPrintQRCode.Location = new System.Drawing.Point(323, 309);
+            this.btnPrintQRCode.Location = new System.Drawing.Point(250, 309);
             this.btnPrintQRCode.Name = "btnPrintQRCode";
-            this.btnPrintQRCode.Size = new System.Drawing.Size(315, 29);
+            this.btnPrintQRCode.Size = new System.Drawing.Size(241, 29);
             this.btnPrintQRCode.TabIndex = 3;
             this.btnPrintQRCode.Text = "Print QR Code";
             this.btnPrintQRCode.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             this.imgQRImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("imgQRImage.InitialImage")));
             this.imgQRImage.Location = new System.Drawing.Point(3, 3);
             this.imgQRImage.Name = "imgQRImage";
-            this.imgQRImage.Size = new System.Drawing.Size(635, 198);
+            this.imgQRImage.Size = new System.Drawing.Size(488, 198);
             this.imgQRImage.TabIndex = 0;
             this.imgQRImage.TabStop = false;
             // 
@@ -112,23 +112,34 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 96);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(488, 96);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // lblPrintNo
+            // 
+            this.lblPrintNo.AutoSize = true;
+            this.lblPrintNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPrintNo.Location = new System.Drawing.Point(3, 72);
+            this.lblPrintNo.Name = "lblPrintNo";
+            this.lblPrintNo.Size = new System.Drawing.Size(127, 24);
+            this.lblPrintNo.TabIndex = 6;
+            this.lblPrintNo.Text = "Print Number";
+            this.lblPrintNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtServiceProviderContact
             // 
             this.txtServiceProviderContact.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtServiceProviderContact.Location = new System.Drawing.Point(176, 51);
+            this.txtServiceProviderContact.Location = new System.Drawing.Point(136, 51);
             this.txtServiceProviderContact.Name = "txtServiceProviderContact";
-            this.txtServiceProviderContact.Size = new System.Drawing.Size(456, 20);
+            this.txtServiceProviderContact.Size = new System.Drawing.Size(349, 20);
             this.txtServiceProviderContact.TabIndex = 5;
             // 
             // txtProjectCode
             // 
             this.txtProjectCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProjectCode.Location = new System.Drawing.Point(176, 27);
+            this.txtProjectCode.Location = new System.Drawing.Point(136, 27);
             this.txtProjectCode.Name = "txtProjectCode";
-            this.txtProjectCode.Size = new System.Drawing.Size(456, 20);
+            this.txtProjectCode.Size = new System.Drawing.Size(349, 20);
             this.txtProjectCode.TabIndex = 4;
             // 
             // lblServiceProviderContact
@@ -137,7 +148,7 @@
             this.lblServiceProviderContact.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblServiceProviderContact.Location = new System.Drawing.Point(3, 48);
             this.lblServiceProviderContact.Name = "lblServiceProviderContact";
-            this.lblServiceProviderContact.Size = new System.Drawing.Size(167, 24);
+            this.lblServiceProviderContact.Size = new System.Drawing.Size(127, 24);
             this.lblServiceProviderContact.TabIndex = 2;
             this.lblServiceProviderContact.Text = "Service Provider Contact";
             this.lblServiceProviderContact.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,7 +159,7 @@
             this.lblProjectCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblProjectCode.Location = new System.Drawing.Point(3, 24);
             this.lblProjectCode.Name = "lblProjectCode";
-            this.lblProjectCode.Size = new System.Drawing.Size(167, 24);
+            this.lblProjectCode.Size = new System.Drawing.Size(127, 24);
             this.lblProjectCode.TabIndex = 1;
             this.lblProjectCode.Text = "Project Code";
             this.lblProjectCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,7 +170,7 @@
             this.lblServiceProvider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblServiceProvider.Location = new System.Drawing.Point(3, 0);
             this.lblServiceProvider.Name = "lblServiceProvider";
-            this.lblServiceProvider.Size = new System.Drawing.Size(167, 24);
+            this.lblServiceProvider.Size = new System.Drawing.Size(127, 24);
             this.lblServiceProvider.TabIndex = 0;
             this.lblServiceProvider.Text = "Service Provider Name";
             this.lblServiceProvider.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -167,37 +178,15 @@
             // txtServiceProvider
             // 
             this.txtServiceProvider.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtServiceProvider.Location = new System.Drawing.Point(176, 3);
+            this.txtServiceProvider.Location = new System.Drawing.Point(136, 3);
             this.txtServiceProvider.Name = "txtServiceProvider";
-            this.txtServiceProvider.Size = new System.Drawing.Size(456, 20);
+            this.txtServiceProvider.Size = new System.Drawing.Size(349, 20);
             this.txtServiceProvider.TabIndex = 3;
-            // 
-            // btnGenerateQRCode
-            // 
-            this.btnGenerateQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGenerateQRCode.Location = new System.Drawing.Point(3, 309);
-            this.btnGenerateQRCode.Name = "btnGenerateQRCode";
-            this.btnGenerateQRCode.Size = new System.Drawing.Size(314, 29);
-            this.btnGenerateQRCode.TabIndex = 2;
-            this.btnGenerateQRCode.Text = "Generate QR Code";
-            this.btnGenerateQRCode.UseVisualStyleBackColor = true;
-            this.btnGenerateQRCode.Click += new System.EventHandler(this.btnGenerateQRCode_Click);
-            // 
-            // lblPrintNo
-            // 
-            this.lblPrintNo.AutoSize = true;
-            this.lblPrintNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPrintNo.Location = new System.Drawing.Point(3, 72);
-            this.lblPrintNo.Name = "lblPrintNo";
-            this.lblPrintNo.Size = new System.Drawing.Size(167, 24);
-            this.lblPrintNo.TabIndex = 6;
-            this.lblPrintNo.Text = "Print Number";
-            this.lblPrintNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numPrintNo
             // 
             this.numPrintNo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numPrintNo.Location = new System.Drawing.Point(176, 75);
+            this.numPrintNo.Location = new System.Drawing.Point(136, 75);
             this.numPrintNo.Minimum = new decimal(new int[] {
             1,
             0,
@@ -212,15 +201,26 @@
             0,
             0});
             // 
+            // btnGenerateQRCode
+            // 
+            this.btnGenerateQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGenerateQRCode.Location = new System.Drawing.Point(3, 309);
+            this.btnGenerateQRCode.Name = "btnGenerateQRCode";
+            this.btnGenerateQRCode.Size = new System.Drawing.Size(241, 29);
+            this.btnGenerateQRCode.TabIndex = 2;
+            this.btnGenerateQRCode.Text = "Generate QR Code";
+            this.btnGenerateQRCode.UseVisualStyleBackColor = true;
+            this.btnGenerateQRCode.Click += new System.EventHandler(this.btnGenerateQRCode_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 341);
+            this.ClientSize = new System.Drawing.Size(494, 341);
             this.Controls.Add(this.pnlMainLayout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
-            this.Text = "ALP Desktop";
+            this.Text = "ALP Desktop v2.0";
             this.pnlMainLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgQRImage)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

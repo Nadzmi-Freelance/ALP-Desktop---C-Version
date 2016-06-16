@@ -4,6 +4,7 @@ using System.Threading;
 using ALP_Desktop_2.Provider;
 using ALP_Desktop_2.DTO;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace ALP_Desktop_2
 {
@@ -12,22 +13,40 @@ namespace ALP_Desktop_2
         List<Inventory> inventoryList;
         Inventory inventory;
 
+        private Font statusFont;
+        private Brush statusBrush;
+        private Bitmap statusBitmap;
+        private Graphics statusGraphics;
+
         public MainWindow()
         {
             InitializeComponent();
 
             // main process ---------------------------------------------------
+            statusFont = new Font("Courier New", 12);
+            statusBrush = new SolidBrush(Color.Black);
+            statusBitmap = new Bitmap((AssetLabel.LABEL_WIDTH * 2), (AssetLabel.LABEL_HEIGHT * 2));
+            statusGraphics = Graphics.FromImage(statusBitmap);
+
+            if (imgQRImage.Image == null)
+                btnPrintQRCode.Enabled = false;
             // ----------------------------------------------------------------
         }
 
         private void btnGenerateQRCode_Click(object sender, EventArgs e)
         {
+            statusGraphics.Clear(Color.White);
+            statusGraphics.DrawImage(statusBitmap, 100, 100);
+            statusGraphics.DrawString("Generating Qr Code...", statusFont, statusBrush, (AssetLabel.LABEL_WIDTH / 2), (AssetLabel.LABEL_HEIGHT / 2));
+            imgQRImage.Image = statusBitmap;
+
             new Thread(new ThreadStart(generateAssetLabel)).Start(); // setup asset label image in saperate thread
+
+            btnPrintQRCode.Enabled = true;
         }
 
         private void btnPrintQRCode_Click(object sender, EventArgs e)
         {
-            // testing purpose
             for(int x=0; x<inventoryList.Count; x++)
             {
                 PrinterProvider.assetLabelList.Add(inventoryList[x].AssetLabel);

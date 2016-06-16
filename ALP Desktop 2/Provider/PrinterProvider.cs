@@ -9,7 +9,6 @@ namespace ALP_Desktop_2.Provider
 {
     class PrinterProvider
     {
-        // testing purpose
         public static List<Bitmap> assetLabelList = new List<Bitmap>();
 
         public static void PrintAsset()
@@ -55,25 +54,20 @@ namespace ALP_Desktop_2.Provider
         private static void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
         {
             int z = 0;
-            bool sideWay = false;
+            int column = 0;
 
             Graphics graphics;
 
             graphics = e.Graphics;
-
-            // testing purpose
             for (int x=0; x<assetLabelList.Count; x++)
             {
-                if(x >= 10 && sideWay == false)
+                if((x % 10 == 0) && (x != 0))
                 {
                     z = 0;
-                    sideWay = true;
+                    column++;
                 }
 
-                if(sideWay)
-                    graphics.DrawImage(assetLabelList[x], AssetLabel.LABEL_WIDTH, (z * AssetLabel.LABEL_HEIGHT), AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
-                else
-                    graphics.DrawImage(assetLabelList[x], 0, (z * AssetLabel.LABEL_HEIGHT), AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
+                graphics.DrawImage(assetLabelList[x], (column * AssetLabel.LABEL_WIDTH), (z * AssetLabel.LABEL_HEIGHT), AssetLabel.LABEL_WIDTH, AssetLabel.LABEL_HEIGHT);
 
                 z++;
             }
